@@ -1,25 +1,25 @@
 # 🔐 SecurePass Dashboard
 
-Um dashboard de análise de senhas com detecção de vazamentos - projeto portfólio full-stack.
+A full-stack password security dashboard with breach detection - portfolio project.
 
-## 🎯 O que faz
+## 🎯 What It Does
 
-- ✅ Usuário cadastra (hashes de) senhas
-- ✅ Verifica se apareceram em data breaches (Have I Been Pwned API)
-- ✅ Mostra força da senha com visual interativo
-- ✅ Dashboard com estatísticas de segurança
+- ✅ Users can check password strength
+- ✅ Detects if passwords appeared in data breaches (Have I Been Pwned API)
+- ✅ Shows password strength with interactive visuals
+- ✅ Dashboard with security statistics
 
-## 🛠️ Stack
+## 🛠️ Tech Stack
 
-| Camada | Tecnologia |
-|--------|------------|
+| Layer | Technology |
+|-------|------------|
 | Frontend | React + Vite + Chart.js + TailwindCSS |
 | Backend | Django + Django REST Framework |
 | Auth | JWT (SimpleJWT) |
-| API Externa | Have I Been Pwned |
+| External API | Have I Been Pwned |
 | Database | SQLite (dev) / PostgreSQL (prod) |
 
-## 📁 Estrutura
+## 📁 Structure
 
 ```
 securepass-dashboard/
@@ -30,7 +30,7 @@ securepass-dashboard/
 ├── frontend/         # React app
 │   ├── src/
 │   └── package.json
-└── docs/             # Documentação
+└── docs/             # Documentation
 ```
 
 ## 🚀 Quick Start
@@ -54,36 +54,36 @@ npm run dev
 
 ## 🔑 Features
 
-1. **Password Strength Analyzer** - Analisa força com critérios visuais
-2. **Breach Detection** - Verifica contra Have I Been Pwned
-3. **Security Dashboard** - Gráficos e estatísticas
-4. **User Auth** - Login/registro com JWT
+1. **Password Strength Analyzer** - Analyzes strength with visual criteria breakdown
+2. **Breach Detection** - Checks against Have I Been Pwned database
+3. **Security Dashboard** - Charts and statistics
+4. **User Auth** - Login/register with JWT tokens
 
 ## 🎨 Screenshots
 
-*Em breve*
+*Coming soon*
 
 ## 📊 API Endpoints
 
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| POST | /api/auth/register/ | Registrar usuário |
-| POST | /api/auth/login/ | Login (retorna JWT) |
-| POST | /api/passwords/check/ | Verificar senha |
-| GET | /api/passwords/stats/ | Estatísticas do usuário |
-| GET | /api/breach/check/ | Verificar vazamento |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/auth/register/ | Register new user |
+| POST | /api/auth/login/ | Login (returns JWT) |
+| POST | /api/passwords/check/ | Check password (auth required) |
+| POST | /api/passwords/quick-check/ | Quick check (no auth) |
+| GET | /api/stats/ | User statistics |
 
-## 🔒 Segurança
+## 🔒 Security
 
-- Senhas NUNCA são armazenadas em texto plano
-- Usamos k-anonymity com HIBP API (apenas 5 primeiros chars do hash)
-- JWT com refresh tokens
-- HTTPS obrigatório em produção
+- Passwords are NEVER stored in plain text
+- Uses k-anonymity with HIBP API (only first 5 chars of hash sent)
+- JWT with refresh tokens
+- HTTPS required in production
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
 **Kelson Brito**
-- LinkedIn: [seu-linkedin]
+- LinkedIn: [kelson-brito](https://www.linkedin.com/in/kelson-brito-ba922b363)
 - GitHub: [@kelsonbrito50](https://github.com/kelsonbrito50)
 
 ## 📄 License
