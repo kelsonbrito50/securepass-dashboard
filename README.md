@@ -83,7 +83,9 @@
 ### Demo Video
 *See SecurePass Dashboard in action*
 
-<video src="securepass-dashboard.mp4" controls width="100%"></video>
+https://github.com/kelsonbrito50/securepass-dashboard/assets/securepass-dashboard.mp4
+
+[![Watch Demo](https://img.shields.io/badge/Watch-Demo%20Video-red?style=for-the-badge&logo=youtube)](https://github.com/kelsonbrito50/securepass-dashboard/raw/main/securepass-dashboard.mp4)
 
 > **Note:** Live demo deployment coming soon! Currently runs locally for portfolio review.
 
