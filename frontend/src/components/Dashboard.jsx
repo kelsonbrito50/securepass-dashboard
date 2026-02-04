@@ -28,7 +28,7 @@ export default function Dashboard() {
     try {
       const response = await api.get('/stats/');
       setStats(response.data);
-    } catch (err) {
+    } catch {
       setError('Error loading statistics');
     } finally {
       setLoading(false);
@@ -92,7 +92,7 @@ export default function Dashboard() {
       {
         label: 'Strength',
         data: stats.recent_checks.map(c => c.strength_score).slice(0, 5),
-        backgroundColor: stats.recent_checks.map(c => 
+        backgroundColor: stats.recent_checks.map(c =>
           c.strength_score >= 70 ? '#22c55e' :
           c.strength_score >= 50 ? '#eab308' : '#ef4444'
         ).slice(0, 5),
