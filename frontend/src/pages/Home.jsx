@@ -15,8 +15,8 @@ export default function Home() {
             SecurePass
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Analise a força das suas senhas e verifique se foram vazadas em data breaches.
-            Proteja suas contas online.
+            Analyze your password strength and check if they've been exposed in data breaches.
+            Protect your online accounts.
           </p>
         </div>
 
@@ -29,42 +29,42 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           <FeatureCard
             icon={<ShieldCheck className="w-8 h-8" />}
-            title="Verificação de Vazamentos"
-            description="Checamos sua senha contra bilhões de registros vazados usando a API Have I Been Pwned."
+            title="Breach Detection"
+            description="We check your password against billions of leaked records using the Have I Been Pwned API."
           />
           <FeatureCard
             icon={<Lock className="w-8 h-8" />}
-            title="Análise de Força"
-            description="Avaliação detalhada com critérios de comprimento, complexidade e padrões comuns."
+            title="Strength Analysis"
+            description="Detailed assessment with criteria for length, complexity, and common patterns."
           />
           <FeatureCard
             icon={<BarChart3 className="w-8 h-8" />}
-            title="Dashboard Completo"
-            description="Crie uma conta para salvar histórico e ver estatísticas das suas verificações."
+            title="Complete Dashboard"
+            description="Create an account to save history and view statistics of your checks."
           />
         </div>
 
         {/* CTA */}
         <div className="bg-gradient-to-r from-primary-600/20 to-primary-800/20 rounded-2xl p-8 text-center">
           <h2 className="text-2xl font-bold mb-4">
-            Quer salvar seu histórico?
+            Want to save your history?
           </h2>
           <p className="text-gray-400 mb-6">
-            Crie uma conta gratuita para acessar o dashboard completo com estatísticas e histórico.
+            Create a free account to access the complete dashboard with statistics and history.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/register"
               className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center gap-2"
             >
-              Criar Conta Grátis
+              Create Free Account
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to="/login"
               className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
-              Já tenho conta
+              I have an account
             </Link>
           </div>
         </div>
@@ -72,8 +72,8 @@ export default function Home() {
         {/* Privacy Note */}
         <div className="mt-12 text-center text-sm text-gray-500">
           <p>
-            🔒 <strong>Sua privacidade importa:</strong> Senhas nunca são armazenadas em texto plano.
-            Usamos k-anonymity com a API HIBP — apenas os primeiros 5 caracteres do hash são enviados.
+            🔒 <strong>Your privacy matters:</strong> Passwords are never stored in plain text.
+            We use k-anonymity with the HIBP API — only the first 5 characters of the hash are sent.
           </p>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function Home() {
       <footer className="border-t border-gray-800 py-6 mt-12">
         <div className="container mx-auto px-4 text-center text-gray-500 text-sm">
           <p>
-            Desenvolvido por{' '}
+            Developed by{' '}
             <a
               href="https://github.com/kelsonbrito50"
               target="_blank"
@@ -93,7 +93,7 @@ export default function Home() {
             </a>
           </p>
           <p className="mt-2">
-            Projeto demonstrativo para portfólio • {new Date().getFullYear()}
+            Portfolio demonstration project • {new Date().getFullYear()}
           </p>
         </div>
       </footer>

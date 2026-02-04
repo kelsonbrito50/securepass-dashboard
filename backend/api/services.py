@@ -68,27 +68,27 @@ def calculate_password_strength(password: str) -> dict:
     # Generate feedback
     feedback = []
     if not criteria['length']:
-        feedback.append('Use pelo menos 8 caracteres')
+        feedback.append('Use at least 8 characters')
     elif not criteria['length_12']:
-        feedback.append('Considere usar 12+ caracteres para maior segurança')
+        feedback.append('Consider using 12+ characters for better security')
     
     if not criteria['uppercase']:
-        feedback.append('Adicione letras maiúsculas')
+        feedback.append('Add uppercase letters')
     if not criteria['lowercase']:
-        feedback.append('Adicione letras minúsculas')
+        feedback.append('Add lowercase letters')
     if not criteria['numbers']:
-        feedback.append('Adicione números')
+        feedback.append('Add numbers')
     if not criteria['special']:
-        feedback.append('Adicione caracteres especiais (!@#$%)')
+        feedback.append('Add special characters (!@#$%)')
     if not criteria['no_common']:
-        feedback.append('Evite senhas comuns')
+        feedback.append('Avoid common passwords')
     if not criteria['no_sequential']:
-        feedback.append('Evite sequências (123, abc)')
+        feedback.append('Avoid sequences (123, abc)')
     if not criteria['no_repeated']:
-        feedback.append('Evite caracteres repetidos (aaa, 111)')
+        feedback.append('Avoid repeated characters (aaa, 111)')
     
     if not feedback:
-        feedback.append('Excelente! Senha muito forte 💪')
+        feedback.append('Excellent! Very strong password 💪')
     
     return {
         'score': score,

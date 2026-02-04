@@ -11,11 +11,11 @@ const strengthColors = {
 };
 
 const strengthLabels = {
-  weak: 'Fraca',
-  fair: 'Razoável',
-  good: 'Boa',
-  strong: 'Forte',
-  very_strong: 'Muito Forte',
+  weak: 'Weak',
+  fair: 'Fair',
+  good: 'Good',
+  strong: 'Strong',
+  very_strong: 'Very Strong',
 };
 
 export default function PasswordChecker({ onCheck }) {
@@ -42,7 +42,7 @@ export default function PasswordChecker({ onCheck }) {
       setResult(response.data);
       if (onCheck) onCheck(response.data);
     } catch (err) {
-      setError(err.response?.data?.error || 'Erro ao verificar senha');
+      setError(err.response?.data?.error || 'Error checking password');
     } finally {
       setLoading(false);
     }
@@ -52,18 +52,18 @@ export default function PasswordChecker({ onCheck }) {
     <div className="bg-gray-800 rounded-xl p-6 shadow-lg">
       <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
         <Shield className="w-6 h-6 text-primary-500" />
-        Verificar Senha
+        Check Password
       </h2>
 
       <form onSubmit={handleCheck} className="space-y-4">
         <div>
-          <label className="block text-sm text-gray-400 mb-1">Senha</label>
+          <label className="block text-sm text-gray-400 mb-1">Password</label>
           <div className="relative">
             <input
               type={showPassword ? 'text' : 'password'}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Digite a senha para verificar"
+              placeholder="Enter password to check"
               className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:border-primary-500 transition-colors"
             />
             <button
@@ -78,13 +78,13 @@ export default function PasswordChecker({ onCheck }) {
 
         <div>
           <label className="block text-sm text-gray-400 mb-1">
-            Rótulo (opcional)
+            Label (optional)
           </label>
           <input
             type="text"
             value={label}
             onChange={(e) => setLabel(e.target.value)}
-            placeholder="Ex: Gmail, Facebook, Banco..."
+            placeholder="E.g., Gmail, Facebook, Bank..."
             className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:border-primary-500 transition-colors"
           />
         </div>
@@ -97,12 +97,12 @@ export default function PasswordChecker({ onCheck }) {
           {loading ? (
             <>
               <Loader2 className="w-5 h-5 animate-spin" />
-              Verificando...
+              Checking...
             </>
           ) : (
             <>
               <Shield className="w-5 h-5" />
-              Verificar Segurança
+              Check Security
             </>
           )}
         </button>
@@ -119,7 +119,7 @@ export default function PasswordChecker({ onCheck }) {
           {/* Strength Score */}
           <div className="space-y-2">
             <div className="flex justify-between items-center">
-              <span className="text-gray-400">Força da Senha</span>
+              <span className="text-gray-400">Password Strength</span>
               <span className={`font-bold ${
                 result.score >= 70 ? 'text-green-500' : 
                 result.score >= 50 ? 'text-yellow-500' : 'text-red-500'
@@ -147,9 +147,9 @@ export default function PasswordChecker({ onCheck }) {
                 <>
                   <ShieldAlert className="w-8 h-8 text-red-500" />
                   <div>
-                    <p className="font-bold text-red-400">⚠️ Senha Vazada!</p>
+                    <p className="font-bold text-red-400">⚠️ Password Breached!</p>
                     <p className="text-sm text-red-300">
-                      Encontrada {result.breach_count.toLocaleString()}x em vazamentos
+                      Found {result.breach_count.toLocaleString()}x in data breaches
                     </p>
                   </div>
                 </>
@@ -157,9 +157,9 @@ export default function PasswordChecker({ onCheck }) {
                 <>
                   <ShieldCheck className="w-8 h-8 text-green-500" />
                   <div>
-                    <p className="font-bold text-green-400">✓ Senha Segura</p>
+                    <p className="font-bold text-green-400">✓ Password Safe</p>
                     <p className="text-sm text-green-300">
-                      Não encontrada em vazamentos conhecidos
+                      Not found in known data breaches
                     </p>
                   </div>
                 </>
@@ -169,12 +169,12 @@ export default function PasswordChecker({ onCheck }) {
 
           {/* Feedback */}
           <div className="space-y-2">
-            <h3 className="font-medium text-gray-300">Recomendações:</h3>
+            <h3 className="font-medium text-gray-300">Recommendations:</h3>
             <ul className="space-y-1">
               {result.feedback.map((item, index) => (
                 <li key={index} className="text-sm text-gray-400 flex items-start gap-2">
-                  <span className={item.includes('Excelente') ? 'text-green-500' : 'text-yellow-500'}>
-                    {item.includes('Excelente') ? '✓' : '→'}
+                  <span className={item.includes('Excellent') ? 'text-green-500' : 'text-yellow-500'}>
+                    {item.includes('Excellent') ? '✓' : '→'}
                   </span>
                   {item}
                 </li>
@@ -198,14 +198,14 @@ export default function PasswordChecker({ onCheck }) {
 }
 
 const criteriaLabels = {
-  length: '8+ caracteres',
-  length_12: '12+ caracteres',
-  length_16: '16+ caracteres',
-  uppercase: 'Maiúsculas',
-  lowercase: 'Minúsculas',
-  numbers: 'Números',
-  special: 'Especiais',
-  no_common: 'Não comum',
-  no_sequential: 'Sem sequência',
-  no_repeated: 'Sem repetição',
+  length: '8+ characters',
+  length_12: '12+ characters',
+  length_16: '16+ characters',
+  uppercase: 'Uppercase',
+  lowercase: 'Lowercase',
+  numbers: 'Numbers',
+  special: 'Special chars',
+  no_common: 'Not common',
+  no_sequential: 'No sequences',
+  no_repeated: 'No repetition',
 };

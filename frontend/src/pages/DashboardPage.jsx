@@ -47,14 +47,14 @@ export default function DashboardPage() {
                     : 'hover:bg-gray-700'
                 }`}
               >
-                Verificar Senha
+                Check Password
               </button>
               <button
                 onClick={handleLogout}
                 className="flex items-center gap-2 px-4 py-2 text-gray-400 hover:text-white transition-colors"
               >
                 <LogOut className="w-5 h-5" />
-                Sair
+                Logout
               </button>
             </nav>
 
@@ -90,14 +90,14 @@ export default function DashboardPage() {
                 }}
                 className="w-full text-left px-4 py-3 hover:bg-gray-700 rounded-lg"
               >
-                Verificar Senha
+                Check Password
               </button>
               <button
                 onClick={handleLogout}
                 className="w-full text-left px-4 py-3 text-red-400 hover:bg-gray-700 rounded-lg flex items-center gap-2"
               >
                 <LogOut className="w-5 h-5" />
-                Sair
+                Logout
               </button>
             </nav>
           )}

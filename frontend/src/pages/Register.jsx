@@ -18,12 +18,12 @@ export default function Register() {
     setError('');
 
     if (password !== confirmPassword) {
-      setError('As senhas não coincidem');
+      setError('Passwords do not match');
       return;
     }
 
     if (password.length < 8) {
-      setError('A senha deve ter pelo menos 8 caracteres');
+      setError('Password must be at least 8 characters');
       return;
     }
 
@@ -36,13 +36,13 @@ export default function Register() {
     } catch (err) {
       const data = err.response?.data;
       if (data?.username) {
-        setError(`Usuário: ${data.username[0]}`);
+        setError(`Username: ${data.username[0]}`);
       } else if (data?.email) {
         setError(`Email: ${data.email[0]}`);
       } else if (data?.password) {
-        setError(`Senha: ${data.password[0]}`);
+        setError(`Password: ${data.password[0]}`);
       } else {
-        setError('Erro ao criar conta');
+        setError('Error creating account');
       }
     } finally {
       setLoading(false);
@@ -57,7 +57,7 @@ export default function Register() {
             <Shield className="w-8 h-8 text-primary-500" />
           </div>
           <h1 className="text-3xl font-bold">SecurePass</h1>
-          <p className="text-gray-400 mt-2">Crie sua conta gratuita</p>
+          <p className="text-gray-400 mt-2">Create your free account</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-gray-800 rounded-xl p-6 space-y-4">
@@ -68,14 +68,14 @@ export default function Register() {
           )}
 
           <div>
-            <label className="block text-sm text-gray-400 mb-1">Usuário</label>
+            <label className="block text-sm text-gray-400 mb-1">Username</label>
             <div className="relative">
               <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
               <input
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="seu.usuario"
+                placeholder="your.username"
                 className="w-full bg-gray-700 border border-gray-600 rounded-lg pl-10 pr-4 py-3 focus:outline-none focus:border-primary-500 transition-colors"
                 required
               />
@@ -90,7 +90,7 @@ export default function Register() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="seu@email.com"
+                placeholder="your@email.com"
                 className="w-full bg-gray-700 border border-gray-600 rounded-lg pl-10 pr-4 py-3 focus:outline-none focus:border-primary-500 transition-colors"
                 required
               />
@@ -98,7 +98,7 @@ export default function Register() {
           </div>
 
           <div>
-            <label className="block text-sm text-gray-400 mb-1">Senha</label>
+            <label className="block text-sm text-gray-400 mb-1">Password</label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
               <input
@@ -114,7 +114,7 @@ export default function Register() {
           </div>
 
           <div>
-            <label className="block text-sm text-gray-400 mb-1">Confirmar Senha</label>
+            <label className="block text-sm text-gray-400 mb-1">Confirm Password</label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
               <input
@@ -136,17 +136,17 @@ export default function Register() {
             {loading ? (
               <>
                 <Loader2 className="w-5 h-5 animate-spin" />
-                Criando conta...
+                Creating account...
               </>
             ) : (
-              'Criar Conta'
+              'Create Account'
             )}
           </button>
 
           <p className="text-center text-gray-400 text-sm">
-            Já tem conta?{' '}
+            Already have an account?{' '}
             <Link to="/login" className="text-primary-500 hover:underline">
-              Entrar
+              Sign in
             </Link>
           </p>
         </form>
