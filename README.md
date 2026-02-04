@@ -80,6 +80,11 @@
 
 ![Dashboard View](dashboard_view.png)
 
+### Demo Video
+*See SecurePass Dashboard in action*
+
+<video src="securepass-dashboard.mp4" controls width="100%"></video>
+
 > **Note:** Live demo deployment coming soon! Currently runs locally for portfolio review.
 
 ---
