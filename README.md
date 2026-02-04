@@ -73,12 +73,12 @@
 ### Landing Page
 *Clean, professional interface with instant password checking*
 
-![Landing Page Placeholder](https://via.placeholder.com/800x400/667eea/ffffff?text=SecurePass+Landing+Page)
+![Landing Page](landing_page.png)
 
 ### Dashboard View
 *Real-time analytics with Chart.js visualizations*
 
-![Dashboard Placeholder](https://via.placeholder.com/800x400/764ba2/ffffff?text=SecurePass+Dashboard)
+![Dashboard View](dashboard_view.png)
 
 > **Note:** Live demo deployment coming soon! Currently runs locally for portfolio review.
 
@@ -485,7 +485,7 @@ This is a portfolio project, but suggestions are welcome!
 ## 👨‍💻 About the Developer
 
 **Kelson Brito** - Full-Stack Software Engineer  
- 🌐 Open to Remote Opportunities
+📍 Houston, TX | 🌐 Open to Remote Opportunities
 
 **Currently studying:**
 - Front-End Development - UCSD Extension
