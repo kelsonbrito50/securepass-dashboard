@@ -485,7 +485,7 @@ This is a portfolio project, but suggestions are welcome!
 ## 👨‍💻 About the Developer
 
 **Kelson Brito** - Full-Stack Software Engineer  
-📍 Houston, TX | 🌐 Open to Remote Opportunities
+ 🌐 Open to Remote Opportunities
 
 **Currently studying:**
 - Front-End Development - UCSD Extension
