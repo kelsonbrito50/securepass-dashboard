@@ -542,3 +542,18 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 **🚀 Ready for production | 📚 Well-documented | 🔒 Security-first | 💼 Recruiter-friendly**
 
 </div>
+
+---
+
+## 🗺️ Roadmap
+
+Upcoming features planned for SecurePass Dashboard:
+
+| Feature | Status |
+|---------|--------|
+| 🔑 Password Generator | 🔜 Planned |
+| 🔐 Two-Factor Authentication (TOTP) | 🔜 Planned |
+| 📄 Export Security Report as PDF | 🔜 Planned |
+| 📊 Advanced breach analytics | 🔜 Planned |
+
+Contributions welcome! See [issues](https://github.com/kelsonbrito50/securepass-dashboard/issues) for details.
