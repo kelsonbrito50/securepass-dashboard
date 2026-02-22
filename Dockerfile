@@ -1,4 +1,4 @@
-# Backend Dockerfile
+# Backend Dockerfile — Railway-ready
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -16,4 +16,7 @@ COPY backend/ .
 
 EXPOSE 8000
 
-CMD ["gunicorn", "securepass.wsgi:application", "--bind", "0.0.0.0:8000"]
+# Use PORT env var (Railway injects this)
+CMD python manage.py migrate --noinput && \
+    python manage.py collectstatic --noinput && \
+    gunicorn securepass.wsgi:application --bind 0.0.0.0:${PORT:-8000}
