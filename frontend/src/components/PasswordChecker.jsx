@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Eye, EyeOff, Shield, ShieldAlert, ShieldCheck, Loader2 } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import { Eye, EyeOff, Shield, ShieldAlert, ShieldCheck, Loader2, Copy, Check } from 'lucide-react';
 import api from '../api/axios';
 
 const strengthColors = {
@@ -25,6 +25,31 @@ export default function PasswordChecker({ onCheck }) {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
+  const [copied, setCopied] = useState(false);
+
+  // Real-time client-side strength meter
+  const liveStrength = useMemo(() => {
+    if (!password) return null;
+    let score = 0;
+    if (password.length >= 8) score += 20;
+    if (password.length >= 12) score += 10;
+    if (password.length >= 16) score += 10;
+    if (/[A-Z]/.test(password)) score += 15;
+    if (/[a-z]/.test(password)) score += 15;
+    if (/[0-9]/.test(password)) score += 15;
+    if (/[^A-Za-z0-9]/.test(password)) score += 15;
+    if (score < 30) return { label: 'Weak', color: 'bg-red-500', text: 'text-red-400', pct: Math.max(score, 8) };
+    if (score < 50) return { label: 'Fair', color: 'bg-orange-500', text: 'text-orange-400', pct: score };
+    if (score < 70) return { label: 'Good', color: 'bg-yellow-500', text: 'text-yellow-400', pct: score };
+    if (score < 90) return { label: 'Strong', color: 'bg-green-500', text: 'text-green-400', pct: score };
+    return { label: 'Very Strong', color: 'bg-emerald-500', text: 'text-emerald-400', pct: 100 };
+  }, [password]);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(password);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleCheck = async (e) => {
     e.preventDefault();
@@ -66,14 +91,41 @@ export default function PasswordChecker({ onCheck }) {
               placeholder="Enter password to check"
               className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 pr-12 focus:outline-none focus:border-primary-500 transition-colors"
             />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
-            >
-              {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-            </button>
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
+              {password && (
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="text-gray-400 hover:text-white transition-colors p-1"
+                  title="Copy password"
+                >
+                  {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="text-gray-400 hover:text-white transition-colors"
+              >
+                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
+
+          {/* Real-time strength meter */}
+          {liveStrength && (
+            <div className="mt-2 space-y-1">
+              <div className="h-1.5 bg-gray-700 rounded-full overflow-hidden">
+                <div
+                  className={`h-full transition-all duration-300 ${liveStrength.color}`}
+                  style={{ width: `${liveStrength.pct}%` }}
+                />
+              </div>
+              <p className={`text-xs ${liveStrength.text}`}>
+                {liveStrength.label} — hit &quot;Check Security&quot; for full analysis
+              </p>
+            </div>
+          )}
         </div>
 
         <div>
