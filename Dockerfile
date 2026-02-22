@@ -14,9 +14,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy backend code
 COPY backend/ .
 
+# Copy start script
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 EXPOSE 8000
 
-# Use PORT env var (Railway injects this)
-CMD python manage.py migrate --noinput && \
-    python manage.py collectstatic --noinput && \
-    gunicorn securepass.wsgi:application --bind 0.0.0.0:${PORT:-8000}
+CMD ["/start.sh"]
