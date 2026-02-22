@@ -8,6 +8,19 @@
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![JWT](https://img.shields.io/badge/JWT-Authentication-000000?logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/🔗_Live_Demo-GitHub_Pages-0ea5e9?style=flat)](https://kelsonbrito50.github.io/securepass-dashboard)
+[![Backend API](https://img.shields.io/badge/Backend_API-Railway-0B0D0E?style=flat&logo=railway)](https://backend-production-e794.up.railway.app/api/health/)
+
+---
+
+## 🌐 Live Deployment
+
+| Layer | URL | Platform |
+|-------|-----|----------|
+| 🖥️ Frontend | [kelsonbrito50.github.io/securepass-dashboard](https://kelsonbrito50.github.io/securepass-dashboard) | GitHub Pages |
+| ⚙️ Backend API | [backend-production-e794.up.railway.app/api](https://backend-production-e794.up.railway.app/api/health/) | Railway |
+| 🗄️ Database | PostgreSQL | Railway Managed |
+| 🔄 CI/CD | Auto-deploy on push to `main` | GitHub Actions |
 
 ---
 
