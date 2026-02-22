@@ -74,7 +74,7 @@ jobs:
           cd frontend
           npm run build
         env:
-          VITE_API_URL: https://backend-production-d6e8.up.railway.app/api
+          VITE_API_URL: https://backend-production-e794.up.railway.app/api
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
