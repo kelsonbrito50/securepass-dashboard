@@ -1,4 +1,5 @@
 from django.urls import path
+from django.http import JsonResponse
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .views import (
@@ -8,6 +9,9 @@ from .views import (
     PasswordHistoryView,
     UserStatsView,
 )
+
+def health(request):
+    return JsonResponse({"status": "ok"})
 
 urlpatterns = [
     # Auth
@@ -22,4 +26,7 @@ urlpatterns = [
     
     # Dashboard
     path('stats/', UserStatsView.as_view(), name='user_stats'),
+
+    # Health check
+    path('health/', health, name='health'),
 ]
