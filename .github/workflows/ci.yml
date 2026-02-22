@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   backend-test:
     runs-on: ubuntu-latest
@@ -46,8 +51,9 @@ jobs:
           SECRET_KEY: ci-test-secret-key-not-for-production
           DEBUG: 'False'
 
-  frontend-build:
+  deploy-frontend:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
       
@@ -63,12 +69,16 @@ jobs:
           cd frontend
           npm ci
       
-      - name: Lint
-        run: |
-          cd frontend
-          npm run lint 2>/dev/null || echo "No lint script configured"
-      
-      - name: Build
+      - name: Build (with production API URL)
         run: |
           cd frontend
           npm run build
+        env:
+          VITE_API_URL: https://backend-production-d6e8.up.railway.app/api
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/dist
+          force_orphan: true
