@@ -11,7 +11,7 @@ faker==22.0.0
 # Linting & formatting
 flake8==7.0.0
 black==24.1.1
-isort==5.13.2
+isort==8.0.0
 pylint==3.0.3
 
 # Type checking
