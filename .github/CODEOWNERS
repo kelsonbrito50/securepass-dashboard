@@ -1,0 +1,24 @@
+# CODEOWNERS — https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# Each line is a pattern followed by one or more owners.
+# Owners are automatically requested for review when someone
+# opens a PR that modifies matching files.
+
+# Global fallback — Kelson owns everything by default
+*                           @kelsonbrito50
+
+# Backend (Django)
+/backend/                   @kelsonbrito50
+
+# Frontend (React)
+/frontend/                  @kelsonbrito50
+
+# GitHub Actions workflows
+/.github/workflows/         @kelsonbrito50
+
+# Documentation
+*.md                        @kelsonbrito50
+/docs/                      @kelsonbrito50
+
+# Security-sensitive files
+/backend/securepass/settings*.py  @kelsonbrito50
