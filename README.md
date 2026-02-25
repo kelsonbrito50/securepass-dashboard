@@ -1,561 +1,402 @@
+<div align="center">
+
 # 🔐 SecurePass Dashboard
 
-> **A professional full-stack password security platform with real-time breach detection**  
-> Built to demonstrate enterprise-level web development skills for modern tech companies.
+### Full-Stack Password Security Platform
 
-[![Django](https://img.shields.io/badge/Django-4.2+-092E20?logo=django&logoColor=white)](https://djangoproject.com/)
-[![React](https://img.shields.io/badge/React-18+-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![JWT](https://img.shields.io/badge/JWT-Authentication-000000?logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Live Demo](https://img.shields.io/badge/🔗_Live_Demo-GitHub_Pages-0ea5e9?style=flat)](https://kelsonbrito50.github.io/securepass-dashboard)
-[![Backend API](https://img.shields.io/badge/Backend_API-Railway-0B0D0E?style=flat&logo=railway)](https://backend-production-e794.up.railway.app/api/health/)
-[![Tests](https://github.com/kelsonbrito50/securepass-dashboard/actions/workflows/test.yml/badge.svg)](https://github.com/kelsonbrito50/securepass-dashboard/actions/workflows/test.yml)
-[![Coverage](https://img.shields.io/badge/coverage-tracked-brightgreen)](https://github.com/kelsonbrito50/securepass-dashboard/actions/workflows/test.yml)
+[![Django](https://img.shields.io/badge/Django-REST_Framework-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.django-rest-framework.org/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Railway](https://img.shields.io/badge/Railway-Deployed-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)](https://railway.app/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![JWT](https://img.shields.io/badge/Auth-JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)](https://jwt.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
----
+**Protecting users from compromised passwords using real breach data.**
 
-## 🌐 Live Deployment
+[🚀 Live Demo](#-live-demo) · [📖 API Docs](#-api-documentation) · [🛠 Getting Started](#-getting-started) · [🔒 Security](#-security)
 
-| Layer | URL | Platform |
-|-------|-----|----------|
-| 🖥️ Frontend | [kelsonbrito50.github.io/securepass-dashboard](https://kelsonbrito50.github.io/securepass-dashboard) | GitHub Pages |
-| ⚙️ Backend API | [backend-production-e794.up.railway.app/api](https://backend-production-e794.up.railway.app/api/health/) | Railway |
-| 🗄️ Database | PostgreSQL | Railway Managed |
-| 🔄 CI/CD | Auto-deploy on push to `main` | GitHub Actions |
+</div>
 
 ---
 
-## 🎯 Why This Project Matters
+## 🚀 Live Demo
 
-**The Problem:** 81% of data breaches are caused by weak or stolen passwords. Users need simple, accessible tools to check password security without compromising privacy.
+| Layer | URL |
+|-------|-----|
+| 🖥️ **Frontend** | [https://kelsonbrito50.github.io/securepass-dashboard](https://kelsonbrito50.github.io/securepass-dashboard) |
+| ⚙️ **Backend API** | Hosted on Railway — see [API Documentation](#-api-documentation) for endpoints |
 
-**The Solution:** SecurePass Dashboard provides enterprise-grade password analysis with **k-anonymity** breach detection — your passwords never leave your device, yet you get real-time insights against billions of leaked credentials.
-
-**Built for:** Security-conscious users, developers, and businesses needing password hygiene tools.
-
----
-
-## ✨ Key Features
-
-<table>
-<tr>
-<td width="50%">
-
-### 🔍 **Smart Password Analysis**
-- **10-point strength algorithm** (length, variety, patterns)
-- **0-100 scoring system** with color-coded feedback
-- **Pattern detection** (sequences, repetition, common passwords)
-- **Real-time validation** as you type
-
-</td>
-<td width="50%">
-
-### 🛡️ **Breach Detection**
-- **Have I Been Pwned API** integration
-- **K-anonymity model** (only hash prefix sent)
-- **Billions of leaked passwords** checked
-- **Zero password storage** — privacy-first design
-
-</td>
-</tr>
-<tr>
-<td>
-
-### 📊 **Interactive Dashboard**
-- **Chart.js visualizations** (strength distribution)
-- **Real-time statistics** (total checks, breaches, avg strength)
-- **Check history** with timestamps
-- **Overall security score** calculation
-
-</td>
-<td>
-
-### 🔐 **JWT Authentication**
-- **Token-based security** (access + refresh)
-- **60-min sessions** with auto-refresh
-- **Protected routes** (frontend + backend)
-- **User-specific data** isolation
-
-</td>
-</tr>
-</table>
+> **Note:** The backend is deployed on Railway with a PostgreSQL database. Cold starts may take a few seconds on the first request.
 
 ---
 
-## 🖥️ Screenshots
+## 📌 About
 
-### Landing Page
-*Clean, professional interface with instant password checking*
+**SecurePass Dashboard** is a full-stack security platform that empowers users to audit the strength and exposure of their passwords — in real time, with zero compromise to their privacy.
 
-![Landing Page](landing_page.png)
+It integrates with the **Have I Been Pwned (HIBP)** API using the **k-anonymity model**, meaning your actual password is never transmitted over the network. The frontend delivers an interactive, data-rich dashboard built with React 18, TailwindCSS, and Chart.js, while the Django REST Framework backend handles authentication, analysis logic, and breach lookups.
 
-### Dashboard View
-*Real-time analytics with Chart.js visualizations*
-
-![Dashboard View](dashboard_view.png)
-
+This project was built to demonstrate real-world security engineering — not just CRUD.
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Features
 
-### Frontend
-| Technology | Purpose | Why This Choice |
-|------------|---------|----------------|
-| **React 18** | UI framework | Industry standard, component reusability |
-| **Vite** | Build tool | 10x faster than Webpack, modern dev experience |
-| **TailwindCSS** | Styling | Rapid prototyping, production-ready |
-| **Chart.js** | Data viz | Lightweight, responsive charts |
-| **Axios** | HTTP client | Interceptors for JWT refresh logic |
-| **React Router** | Navigation | SPA routing with protected routes |
-| **Lucide React** | Icons | Modern, consistent icon system |
+### 🔍 Password Strength Analyzer
+- Real-time entropy calculation and strength scoring
+- Identifies weaknesses: length, character diversity, common patterns
+- Visual feedback with dynamic strength indicators
+
+### 🛡️ HIBP Breach Detection
+- Checks passwords against a database of **billions of compromised credentials**
+- Uses **k-anonymity** — only the first 5 characters of the SHA-1 hash are sent to the HIBP API
+- Your full password never leaves your browser in plaintext
+
+### 📊 Interactive Dashboard
+- Historical analysis charts powered by **Chart.js**
+- Visual breakdown of password health metrics over time
+- Clean, responsive UI with TailwindCSS
+
+### 🔐 JWT Authentication
+- Stateless authentication with access and refresh token flow
+- Secure route protection on both frontend and backend
+- Token expiration and renewal handled transparently
+
+---
+
+## 🧰 Tech Stack
 
 ### Backend
-| Technology | Purpose | Why This Choice |
-|------------|---------|----------------|
-| **Django 4.2** | Web framework | Batteries-included, security-first |
-| **DRF** | REST API | Serialization, viewsets, permissions |
-| **SimpleJWT** | Auth | Stateless, secure token management |
-| **CORS Headers** | Cross-origin | Dev/prod security configuration |
-| **Requests** | HTTP | HIBP API integration |
+| Technology | Purpose |
+|---|---|
+| **Python 3.x** | Core language |
+| **Django** | Web framework |
+| **Django REST Framework** | API layer |
+| **Simple JWT** | Token-based authentication |
+| **PostgreSQL** | Relational database |
+| **Railway** | Cloud deployment & managed DB |
+| **HIBP API** | Breach data source |
 
-### External APIs
-- **Have I Been Pwned** - Breach detection with k-anonymity model
-
----
-
-## 📊 Project Metrics
-
-```
-📁 Project Size:      ~2,500 lines of code
-🧩 Components:        15 React components
-🔌 API Endpoints:     7 RESTful routes
-🗄️ Database Models:   3 (User, PasswordCheck, UserStats)
-🎨 Pages:             5 (Home, Login, Register, Dashboard, 404)
-📚 Documentation:     4 comprehensive guides
-⚡ Build Time:        < 2 seconds (Vite)
-🔒 Security Score:    A+ (no password storage, k-anonymity)
-```
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-- **Python 3.10+** | **Node.js 18+** | **Git**
-
-### Installation (3 minutes)
-
-```bash
-# Clone repository
-git clone https://github.com/kelsonbrito50/securepass-dashboard.git
-cd securepass-dashboard
-
-# Backend setup
-cd backend
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
-
-# Frontend setup (new terminal)
-cd frontend
-npm install
-npm run dev
-
-# 🎉 Open http://localhost:5173
-```
-
-**Or use the automated script:**
-```bash
-chmod +x start.sh && ./start.sh
-```
-
-### Test Account
-```
-Username: testuser
-Password: Test123!@#
-```
+### Frontend
+| Technology | Purpose |
+|---|---|
+| **React 18** | UI library |
+| **Vite** | Build tool & dev server |
+| **TailwindCSS** | Utility-first styling |
+| **Chart.js** | Data visualization |
+| **Axios** | HTTP client |
+| **React Router v6** | Client-side routing |
+| **GitHub Pages** | Static hosting |
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-┌─────────────────┐      HTTPS/REST       ┌──────────────────┐
-│   React SPA     │ ◄─────────────────► │  Django REST API │
-│   (Port 5173)   │   JWT Authentication │   (Port 8000)    │
-└─────────────────┘                       └──────────────────┘
-        │                                          │
-        │                                          │
-        ▼                                          ▼
-┌─────────────────┐                       ┌──────────────────┐
-│  Context API    │                       │  SQLite/PostgreSQL│
-│  (Auth State)   │                       │   (User Data)    │
-└─────────────────┘                       └──────────────────┘
-        │                                          │
-        │                                          │
-        ▼                                          ▼
-┌─────────────────┐                       ┌──────────────────┐
-│  React Router   │                       │  HIBP API        │
-│  (Protected)    │                       │  (Breach Check)  │
-└─────────────────┘                       └──────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                        USER BROWSER                             │
+│                                                                 │
+│   ┌─────────────────────────────────────────────────────────┐   │
+│   │              React 18 SPA (GitHub Pages)                │   │
+│   │                                                         │   │
+│   │  ┌──────────────┐   ┌───────────────┐  ┌────────────┐  │   │
+│   │  │  Auth Views  │   │  Dashboard    │  │  Analyzer  │  │   │
+│   │  │  (JWT Flow)  │   │  (Chart.js)   │  │  (HIBP UI) │  │   │
+│   │  └──────┬───────┘   └───────┬───────┘  └─────┬──────┘  │   │
+│   └─────────┼───────────────────┼────────────────┼──────────┘   │
+│             │         HTTPS / JWT Bearer Token   │              │
+└─────────────┼───────────────────┼────────────────┼──────────────┘
+              │                   │                │
+              ▼                   ▼                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              Django REST Framework API (Railway)                │
+│                                                                 │
+│   ┌──────────────┐   ┌────────────────┐   ┌─────────────────┐  │
+│   │  /api/auth/  │   │  /api/analyze/ │   │  /api/history/  │  │
+│   │  JWT tokens  │   │  strength +    │   │  user records   │  │
+│   │              │   │  breach check  │   │                 │  │
+│   └──────────────┘   └───────┬────────┘   └────────┬────────┘  │
+└──────────────────────────────┼─────────────────────┼───────────┘
+                               │                     │
+              ┌────────────────┘                     │
+              │                                      ▼
+              ▼                          ┌────────────────────────┐
+┌────────────────────────┐               │       PostgreSQL        │
+│      HIBP API          │               │   (Railway Managed DB)  │
+│  api.pwnedpasswords.com│               │  users / analyses /     │
+│  k-anonymity range     │               │  history records        │
+│  SHA-1[0:5] prefix     │               └────────────────────────┘
+└────────────────────────┘
 ```
 
-**Data Flow:**
-1. User enters password → React component
-2. Axios sends POST → Django REST endpoint
-3. Django hashes password → HIBP API (first 5 chars only)
-4. HIBP returns breach count → Django analyzes strength
-5. Django saves check → Returns JSON response
-6. React updates UI → Chart.js renders visualization
-
-**Full architecture:** [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+**Data flow for breach detection:**
+1. User submits password in browser
+2. React computes `SHA-1(password)` client-side
+3. Only the **first 5 hex chars** of the 40-character hex hash are transmitted (the "prefix")
+4. Backend forwards the prefix to HIBP API and receives a list of matching hash suffixes
+5. React checks if the full hash suffix is in that list — **locally, in the browser**
+6. Zero exposure of the actual password to any server
 
 ---
 
-## 📚 Project Structure
+## 📖 API Documentation
 
+### Base URL
 ```
-securepass-dashboard/
-├── backend/                    # Django REST API
-│   ├── api/                    # Core application
-│   │   ├── models.py           # Database models (User, PasswordCheck, UserStats)
-│   │   ├── views.py            # API endpoints (7 routes)
-│   │   ├── services.py         # Business logic (strength algorithm, HIBP)
-│   │   ├── serializers.py      # Request/response validation
-│   │   └── urls.py             # API routing
-│   ├── securepass/             # Django project config
-│   │   ├── settings.py         # Security, CORS, JWT config
-│   │   └── urls.py             # Root URL patterns
-│   └── requirements.txt        # Python dependencies
-│
-├── frontend/                   # React + Vite
-│   ├── src/
-│   │   ├── components/         # Reusable UI components
-│   │   │   ├── Dashboard.jsx   # Main dashboard with charts
-│   │   │   └── PasswordChecker.jsx  # Password input & analysis
-│   │   ├── pages/              # Route pages
-│   │   │   ├── Home.jsx        # Landing page
-│   │   │   ├── Login.jsx       # Authentication
-│   │   │   ├── Register.jsx    # User signup
-│   │   │   └── DashboardPage.jsx  # Protected dashboard
-│   │   ├── context/            # Global state
-│   │   │   └── AuthContext.jsx # JWT management
-│   │   ├── api/                # HTTP client
-│   │   │   └── axios.js        # Interceptors, base config
-│   │   └── main.jsx            # React entry point
-│   ├── .env.example            # Environment variables template
-│   └── package.json            # Node dependencies
-│
-├── docs/                       # Technical documentation
-│   ├── TECH_STACK.md           # Technology deep dive
-│   ├── ARCHITECTURE.md         # System design patterns
-│   └── API.md                  # REST API reference
-│
-├── start.sh                    # Development start script
-└── README.md                   # You are here
+https://<your-railway-app>.railway.app/api/
 ```
 
----
+### Authentication
 
-## 🔑 API Endpoints
+#### `POST /api/auth/register/`
+Register a new user account.
 
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| `POST` | `/api/auth/register/` | Create new user account | ❌ |
-| `POST` | `/api/auth/login/` | Get JWT access + refresh tokens | ❌ |
-| `POST` | `/api/auth/refresh/` | Refresh expired access token | ❌ |
-| `POST` | `/api/passwords/check/` | Full password check (saves to history) | ✅ |
-| `POST` | `/api/passwords/quick-check/` | Anonymous check (no save) | ❌ |
-| `GET` | `/api/passwords/history/` | User's password check history | ✅ |
-| `GET` | `/api/stats/` | Dashboard statistics & charts | ✅ |
-
-**Full API documentation:** [docs/API.md](docs/API.md)
-
-**Example Request:**
-```bash
-curl -X POST http://localhost:8000/api/passwords/quick-check/ \
-  -H "Content-Type: application/json" \
-  -d '{"password": "MySecureP@ssw0rd!"}'
-```
-
-**Example Response:**
 ```json
+// Request
 {
-  "strength_score": 85,
-  "strength_label": "Strong",
-  "is_breached": false,
-  "breach_count": 0,
-  "criteria": {
-    "min_length": true,
-    "has_uppercase": true,
-    "has_lowercase": true,
-    "has_numbers": true,
-    "has_special": true,
-    "good_length": true,
-    "excellent_length": false,
-    "no_common": true,
-    "no_sequence": true,
-    "no_repeat": true
-  }
+  "username": "johndoe",
+  "email": "john@example.com",
+  "password": "YourPassword123!"
+}
+
+// Response 201
+{
+  "id": 1,
+  "username": "johndoe",
+  "email": "john@example.com"
 }
 ```
 
----
+#### `POST /api/auth/token/`
+Obtain JWT access and refresh tokens.
 
-## 🔒 Security Features
+```json
+// Request
+{
+  "username": "johndoe",
+  "password": "YourPassword123!"
+}
 
-### Password Privacy
-- ❌ **No password storage** - Passwords are never saved to database
-- ✅ **Client-side hashing** - SHA-1 hash computed in backend, discarded after check
-- ✅ **K-anonymity model** - Only first 5 characters of hash sent to HIBP
-- ✅ **No logging** - Passwords excluded from all logs
+// Response 200
+{
+  "access": "<jwt_access_token>",
+  "refresh": "<jwt_refresh_token>"
+}
+```
 
-### Authentication Security
-- ✅ **JWT tokens** - Stateless, secure authentication
-- ✅ **Token rotation** - Access (60 min) + Refresh (7 days)
-- ✅ **HttpOnly cookies** - Can be configured for production
-- ✅ **CORS protection** - Restricted origins
+#### `POST /api/auth/token/refresh/`
+Refresh an expired access token.
 
-### Input Validation
-- ✅ **Django serializers** - All inputs validated
-- ✅ **SQL injection protection** - Django ORM parameterization
-- ✅ **XSS prevention** - React auto-escaping
-- ✅ **CSRF tokens** - Django middleware
+```json
+// Request
+{ "refresh": "<jwt_refresh_token>" }
 
-**Security audit:** [docs/ARCHITECTURE.md#security-considerations](docs/ARCHITECTURE.md#security-considerations)
-
----
-
-## 🧪 Testing
-
-### Manual Testing Checklist
-- [x] User registration with validation
-- [x] JWT login with token refresh
-- [x] Password strength calculation (10 criteria)
-- [x] HIBP breach detection (k-anonymity)
-- [x] Dashboard statistics rendering
-- [x] Chart.js visualizations
-- [x] Protected route authorization
-- [x] API error handling
-- [x] Responsive design (mobile/desktop)
-
-### Run Tests Locally
-```bash
-# Backend tests
-cd backend
-python manage.py test
-
-# Frontend tests (coming soon)
-cd frontend
-npm test
+// Response 200
+{ "access": "<new_jwt_access_token>" }
 ```
 
 ---
 
-## 🚧 Roadmap
+### Password Analysis
 
-### Phase 1: MVP ✅ (Completed)
-- [x] Password strength analyzer
-- [x] HIBP breach detection
-- [x] User authentication (JWT)
-- [x] Dashboard with Chart.js
-- [x] Responsive UI
+> All analysis endpoints require `Authorization: Bearer <access_token>` header.
 
-### Phase 2: Enhanced Features 🚀 (Next)
-- [ ] **Password generator** (configurable strength)
-- [ ] **Browser extension** (Chrome/Firefox)
-- [ ] **Two-factor authentication** (TOTP)
-- [ ] **Export reports** (PDF/CSV)
-- [ ] **Dark/light theme** toggle
+#### `POST /api/analyze/`
+Analyze password strength and check breach status.
 
-### Phase 3: Enterprise 🏢 (Future)
-- [ ] Team/organization accounts
-- [ ] Admin dashboard
-- [ ] Audit logs
-- [ ] SSO integration (Google, Microsoft)
-- [ ] API rate limiting
-- [ ] Webhook notifications
+```json
+// Request
+{
+  "hash_prefix": "5BAA6",
+  "password_meta": {
+    "length": 12,
+    "has_uppercase": true,
+    "has_lowercase": true,
+    "has_numbers": true,
+    "has_symbols": false
+  }
+}
 
----
+// Response 200
+{
+  "strength_score": 72,
+  "strength_label": "Strong",
+  "breach_count": 0,
+  "is_compromised": false,
+  "feedback": ["Add symbols to further strengthen your password"]
+}
+```
 
-## 🎓 Skills Demonstrated
+#### `GET /api/history/`
+Retrieve the authenticated user's analysis history.
 
-This project showcases proficiency in:
-
-### Backend Development
-- ✅ RESTful API design with Django REST Framework
-- ✅ JWT authentication & authorization
-- ✅ Database modeling with Django ORM
-- ✅ Third-party API integration (HIBP)
-- ✅ Security best practices (CORS, CSRF, input validation)
-
-### Frontend Development
-- ✅ React 18 with modern hooks (useState, useEffect, useContext)
-- ✅ Context API for global state management
-- ✅ React Router with protected routes
-- ✅ Axios with interceptors (auto token refresh)
-- ✅ Responsive design with TailwindCSS
-- ✅ Data visualization with Chart.js
-
-### Software Engineering
-- ✅ Clean code principles (separation of concerns)
-- ✅ API-first architecture
-- ✅ Documentation & developer experience
-- ✅ Git version control
-- ✅ Environment-based configuration
-
-### Security Expertise
-- ✅ K-anonymity privacy model
-- ✅ Password security best practices
-- ✅ Token-based authentication
-- ✅ OWASP security guidelines
+```json
+// Response 200
+[
+  {
+    "id": 42,
+    "analyzed_at": "2024-11-15T14:32:00Z",
+    "strength_score": 45,
+    "strength_label": "Weak",
+    "is_compromised": true,
+    "breach_count": 3281
+  }
+]
+```
 
 ---
 
-## 📖 Documentation
+### HTTP Status Codes
 
-Comprehensive guides for developers:
-
-- **[Tech Stack Deep Dive](docs/TECH_STACK.md)** - Why each technology was chosen
-- **[Architecture Overview](docs/ARCHITECTURE.md)** - System design & data flow
-- **[API Reference](docs/API.md)** - Complete REST API documentation
+| Code | Meaning |
+|------|---------|
+| `200` | Success |
+| `201` | Resource created |
+| `400` | Bad request / validation error |
+| `401` | Unauthorized — invalid or missing JWT |
+| `403` | Forbidden |
+| `404` | Not found |
+| `500` | Internal server error |
 
 ---
 
-## 🔧 Development
+## 🔒 Security
 
-### Environment Setup
+### K-Anonymity Model (HIBP)
 
-**Backend (.env):**
+The k-anonymity implementation ensures **your full password hash is never sent to any external service**:
+
+1. The password is hashed with **SHA-1** entirely in the client
+2. Only the **first 5 characters** of the 40-character hex hash are transmitted (the "prefix")
+3. The HIBP API returns all known compromised hashes that share that same 5-char prefix (~500 results on average)
+4. The client performs a **local lookup** to determine if the full hash is in the list
+
+This means even if the HIBP API or the backend were compromised, it would be mathematically infeasible to reverse-engineer the original password from a 5-character hash prefix.
+
+### JWT Authentication
+
+- **Access tokens** are short-lived (default: 5 minutes)
+- **Refresh tokens** enable seamless session renewal without re-authentication
+- Tokens are stored in memory (not `localStorage`) to mitigate XSS risk
+- All API routes are protected — unauthenticated requests return `401 Unauthorized`
+
+### General Security Practices
+
+- Passwords are **never stored** — only hashed prefixes are sent
+- HTTPS enforced on all deployed services
+- Django's CSRF protection enabled on state-mutating views
+- Django `SECRET_KEY` and database credentials managed via environment variables
+- `DEBUG=False` in production
+- CORS restricted to the frontend domain
+
+---
+
+## 🛠 Getting Started
+
+### Prerequisites
+
+- Python 3.10+
+- Node.js 18+
+- PostgreSQL (local) or Railway account (cloud)
+- Git
+
+---
+
+### Backend Setup
+
 ```bash
-SECRET_KEY=your-secret-key-here
+# 1. Clone the repository
+git clone https://github.com/kelsonbrito50/securepass-dashboard.git
+cd securepass-dashboard/backend
+
+# 2. Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Configure environment variables
+cp .env.example .env
+```
+
+Edit `.env` with your values:
+```env
+SECRET_KEY=your-django-secret-key
 DEBUG=True
+DATABASE_URL=postgres://user:password@localhost:5432/securepass
 ALLOWED_HOSTS=localhost,127.0.0.1
 CORS_ALLOWED_ORIGINS=http://localhost:5173
 ```
 
-**Frontend (.env):**
 ```bash
-VITE_API_URL=http://localhost:8000/api
-```
-
-### Database Management
-
-**Reset database:**
-```bash
-cd backend
-rm db.sqlite3
+# 5. Run database migrations
 python manage.py migrate
+
+# 6. Create a superuser (optional)
 python manage.py createsuperuser
+
+# 7. Start the development server
+python manage.py runserver
 ```
 
-**Switch to PostgreSQL:**
-```python
-# settings.py
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'securepass',
-        'USER': 'your_user',
-        'PASSWORD': 'your_password',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-```
+Backend running at: `http://localhost:8000`
 
-### Build for Production
+---
 
-**Backend:**
+### Frontend Setup
+
 ```bash
-pip install gunicorn
-gunicorn securepass.wsgi:application --bind 0.0.0.0:8000
+cd frontend
+
+# 1. Install dependencies
+npm install
+
+# 2. Configure environment variables
+cp .env.example .env.local
 ```
 
-**Frontend:**
+Edit `.env.local`:
+```env
+VITE_API_BASE_URL=http://localhost:8000/api
+```
+
 ```bash
-npm run build
-# Output: frontend/dist/
+# 3. Start the development server
+npm run dev
 ```
 
----
-
-## 🤝 Contributing
-
-This is a portfolio project, but suggestions are welcome!
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Frontend running at: `http://localhost:5173`
 
 ---
 
-## 👨‍💻 About the Developer
+## 💡 What I Learned
 
-**Kelson Brito** - Full-Stack Software Engineer  
- 🌐 Open to Remote Opportunities
+Building SecurePass Dashboard pushed me into real-world security engineering territory:
 
-**Currently studying:**
-- Front-End Development - UCSD Extension
-- Meta Back-End Developer Certificate - Coursera
-- Software Engineering BS - UNINTER Brazil
+- **K-anonymity in practice** — Implementing the HIBP k-anonymity model forced me to deeply understand hash functions, prefix matching, and why client-side cryptography matters. It's not just "call the API" — the privacy guarantee requires deliberate architectural choices about where computation happens.
 
-**Tech Stack:**
-- **Frontend:** React, JavaScript, HTML/CSS, TailwindCSS
-- **Backend:** Django, Python, REST APIs
-- **Database:** PostgreSQL, SQLite
-- **Tools:** Git, Docker, Linux
+- **Decoupled full-stack deployment** — Running the frontend on GitHub Pages and the backend on Railway taught me the realities of CORS configuration, API URL management across environments, and the tradeoffs of separating static hosting from API hosting.
 
-**Connect:**
-- 💼 [LinkedIn](https://www.linkedin.com/in/kelson-brito-ba922b363)
-- 🐙 [GitHub](https://github.com/kelsonbrito50)
-- 📧 ecommdev02@gmail.com
+- **JWT token lifecycle** — Building the complete flow (login → access token → expiry → refresh → re-auth) from scratch gave me a much deeper understanding than any tutorial. Handling edge cases like concurrent requests during token refresh was the real challenge.
+
+- **Chart.js for security data** — Visualizing password analysis history required thinking about what metrics actually matter to users. A strength score means nothing without context — showing trends over time made the data actionable.
+
+- **Django REST Framework serializer design** — Writing serializers that validate security-sensitive input (hash prefixes, password metadata) without ever accepting the raw password taught me to think defensively about every field in an API contract.
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- **Have I Been Pwned** - Troy Hunt's amazing breach detection API
-- **Django & DRF** - Robust backend framework
-- **React Team** - Modern frontend library
-- **TailwindCSS** - Utility-first styling
-- **Chart.js** - Beautiful data visualizations
+[MIT](./LICENSE) © [Kelson Brito](https://github.com/kelsonbrito50)
 
 ---
 
 <div align="center">
 
-**⭐ If this project helped you, please star it on GitHub! ⭐**
+Built by **[Kelson Brito](https://github.com/kelsonbrito50)**
 
-*Built with ❤️ as a portfolio project to demonstrate full-stack development skills for modern tech companies.*
-
-**🚀 Ready for production | 📚 Well-documented | 🔒 Security-first | 💼 Recruiter-friendly**
+⭐ Star this repo if you find it useful.
 
 </div>
-
----
-
-## 🗺️ Roadmap
-
-Upcoming features planned for SecurePass Dashboard:
-
-| Feature | Status |
-|---------|--------|
-| 🔑 Password Generator | 🔜 Planned |
-| 🔐 Two-Factor Authentication (TOTP) | 🔜 Planned |
-| 📄 Export Security Report as PDF | 🔜 Planned |
-| 📊 Advanced breach analytics | 🔜 Planned |
-
-Contributions welcome! See [issues](https://github.com/kelsonbrito50/securepass-dashboard/issues) for details.
