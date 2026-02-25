@@ -5,7 +5,6 @@ Tests password strength logic, HIBP integration (mocked), and hash utilities.
 import hashlib
 from unittest.mock import patch, MagicMock
 
-import pytest
 
 from api.services import (
     calculate_password_strength,
