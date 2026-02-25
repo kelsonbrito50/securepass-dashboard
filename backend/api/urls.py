@@ -1,10 +1,14 @@
 from django.http import JsonResponse
 from django.urls import path
-from rest_framework_simplejwt.views import (TokenObtainPairView,
-                                            TokenRefreshView)
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from .views import (PasswordCheckView, PasswordHistoryView, QuickCheckView,
-                    RegisterView, UserStatsView)
+from .views import (
+    PasswordCheckView,
+    PasswordHistoryView,
+    QuickCheckView,
+    RegisterView,
+    UserStatsView,
+)
 
 
 def health(request):
