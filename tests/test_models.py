@@ -1,6 +1,7 @@
 """
 Unit tests for Django models.
 """
+
 import pytest
 from api.models import PasswordCheck, UserStats
 
@@ -29,8 +30,12 @@ class TestPasswordCheckModel:
         assert "Unlabeled" in str(check)
 
     def test_ordering_is_newest_first(self, user):
-        _ = PasswordCheck.objects.create(user=user, hash_prefix="00001", strength_score=10)
-        c2 = PasswordCheck.objects.create(user=user, hash_prefix="00002", strength_score=20)
+        _ = PasswordCheck.objects.create(
+            user=user, hash_prefix="00001", strength_score=10
+        )
+        c2 = PasswordCheck.objects.create(
+            user=user, hash_prefix="00002", strength_score=20
+        )
         checks = list(PasswordCheck.objects.filter(user=user))
         assert checks[0].pk == c2.pk  # newest first
 
@@ -56,6 +61,7 @@ class TestUserStatsModel:
     def test_one_to_one_constraint(self, user):
         UserStats.objects.create(user=user)
         from django.db import IntegrityError
+
         with pytest.raises(IntegrityError):
             UserStats.objects.create(user=user)
 
