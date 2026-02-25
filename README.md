@@ -4,6 +4,8 @@
 
 ### Full-Stack Password Security Platform
 
+[![CI](https://github.com/kelsonbrito50/securepass-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/kelsonbrito50/securepass-dashboard/actions) ![Tests](https://img.shields.io/badge/tests-51%20passed-brightgreen) ![Python](https://img.shields.io/badge/Python-3.11-blue)
+
 [![Django](https://img.shields.io/badge/Django-REST_Framework-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.django-rest-framework.org/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
