@@ -29,6 +29,10 @@
 
 > **Note:** The backend is deployed on Railway with a PostgreSQL database. Cold starts may take a few seconds on the first request.
 
+<p align="center">
+  <img src="docs/images/preview.png" alt="SecurePass Dashboard Preview" width="800" />
+</p>
+
 ---
 
 ## 📌 About
