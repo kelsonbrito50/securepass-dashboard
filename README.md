@@ -10,6 +10,8 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Live Demo](https://img.shields.io/badge/🔗_Live_Demo-GitHub_Pages-0ea5e9?style=flat)](https://kelsonbrito50.github.io/securepass-dashboard)
 [![Backend API](https://img.shields.io/badge/Backend_API-Railway-0B0D0E?style=flat&logo=railway)](https://backend-production-e794.up.railway.app/api/health/)
+[![Tests](https://github.com/kelsonbrito50/securepass-dashboard/actions/workflows/test.yml/badge.svg)](https://github.com/kelsonbrito50/securepass-dashboard/actions/workflows/test.yml)
+[![Coverage](https://img.shields.io/badge/coverage-tracked-brightgreen)](https://github.com/kelsonbrito50/securepass-dashboard/actions/workflows/test.yml)
 
 ---
 
