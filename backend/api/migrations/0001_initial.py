@@ -15,30 +15,79 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='PasswordCheck',
+            name="PasswordCheck",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('hash_prefix', models.CharField(help_text='First 5 chars of SHA1 hash (k-anonymity)', max_length=5)),
-                ('label', models.CharField(blank=True, help_text="Optional label (e.g., 'Gmail password')", max_length=100)),
-                ('strength_score', models.IntegerField(default=0, help_text='0-100 strength score')),
-                ('is_breached', models.BooleanField(default=False)),
-                ('breach_count', models.IntegerField(default=0, help_text='Times found in breaches')),
-                ('checked_at', models.DateTimeField(auto_now_add=True)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='password_checks', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "hash_prefix",
+                    models.CharField(
+                        help_text="First 5 chars of SHA1 hash (k-anonymity)",
+                        max_length=5,
+                    ),
+                ),
+                (
+                    "label",
+                    models.CharField(
+                        blank=True,
+                        help_text="Optional label (e.g., 'Gmail password')",
+                        max_length=100,
+                    ),
+                ),
+                (
+                    "strength_score",
+                    models.IntegerField(default=0, help_text="0-100 strength score"),
+                ),
+                ("is_breached", models.BooleanField(default=False)),
+                (
+                    "breach_count",
+                    models.IntegerField(default=0, help_text="Times found in breaches"),
+                ),
+                ("checked_at", models.DateTimeField(auto_now_add=True)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="password_checks",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'ordering': ['-checked_at'],
+                "ordering": ["-checked_at"],
             },
         ),
         migrations.CreateModel(
-            name='UserStats',
+            name="UserStats",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('total_checks', models.IntegerField(default=0)),
-                ('breached_count', models.IntegerField(default=0)),
-                ('avg_strength', models.FloatField(default=0.0)),
-                ('last_check', models.DateTimeField(blank=True, null=True)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='stats', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("total_checks", models.IntegerField(default=0)),
+                ("breached_count", models.IntegerField(default=0)),
+                ("avg_strength", models.FloatField(default=0.0)),
+                ("last_check", models.DateTimeField(blank=True, null=True)),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="stats",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

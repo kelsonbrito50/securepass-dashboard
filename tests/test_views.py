@@ -2,19 +2,18 @@
 Integration tests for API endpoints.
 Tests registration, JWT auth, password checking, history, and stats.
 """
-import json
+
 from unittest.mock import patch
 
 import pytest
 from django.contrib.auth.models import User
-from django.urls import reverse
-from rest_framework.test import APIClient
 from rest_framework import status
-
+from rest_framework.test import APIClient
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
 
 def get_tokens(client, username="testuser", password="TestPassword123!"):
     """Return access token for the given credentials."""
@@ -30,6 +29,7 @@ def get_tokens(client, username="testuser", password="TestPassword123!"):
 # Health endpoint
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.django_db
 class TestHealthEndpoint:
     def test_health_returns_ok(self):
@@ -43,13 +43,18 @@ class TestHealthEndpoint:
 # Registration
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.django_db
 class TestRegisterView:
     def test_register_new_user(self):
         client = APIClient()
         resp = client.post(
             "/api/auth/register/",
-            {"username": "newuser", "password": "Strong@Pass1", "email": "new@example.com"},
+            {
+                "username": "newuser",
+                "password": "Strong@Pass1",
+                "email": "new@example.com",
+            },
             format="json",
         )
         assert resp.status_code == status.HTTP_201_CREATED
@@ -69,6 +74,7 @@ class TestRegisterView:
 # ---------------------------------------------------------------------------
 # JWT login
 # ---------------------------------------------------------------------------
+
 
 @pytest.mark.django_db
 class TestLoginView:
@@ -97,6 +103,7 @@ class TestLoginView:
 # Quick Check (anonymous)
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.django_db
 class TestQuickCheckView:
     @patch("api.views.check_hibp_breach", return_value=(False, 0))
@@ -115,7 +122,9 @@ class TestQuickCheckView:
 
     def test_quick_check_empty_password(self):
         client = APIClient()
-        resp = client.post("/api/passwords/quick-check/", {"password": ""}, format="json")
+        resp = client.post(
+            "/api/passwords/quick-check/", {"password": ""}, format="json"
+        )
         assert resp.status_code == status.HTTP_400_BAD_REQUEST
 
     def test_quick_check_missing_password(self):
@@ -139,6 +148,7 @@ class TestQuickCheckView:
 # ---------------------------------------------------------------------------
 # Authenticated Password Check
 # ---------------------------------------------------------------------------
+
 
 @pytest.mark.django_db
 class TestPasswordCheckView:
@@ -181,6 +191,7 @@ class TestPasswordCheckView:
 # Password History
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.django_db
 class TestPasswordHistoryView:
     def test_unauthenticated_history_rejected(self):
@@ -210,6 +221,7 @@ class TestPasswordHistoryView:
 # User Stats
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.django_db
 class TestUserStatsView:
     def test_unauthenticated_stats_rejected(self):
@@ -224,5 +236,10 @@ class TestUserStatsView:
 
         resp = client.get("/api/stats/")
         assert resp.status_code == status.HTTP_200_OK
-        for key in ("total_checks", "breached_count", "avg_strength", "strength_distribution"):
+        for key in (
+            "total_checks",
+            "breached_count",
+            "avg_strength",
+            "strength_distribution",
+        ):
             assert key in resp.data, f"Missing key: {key}"
